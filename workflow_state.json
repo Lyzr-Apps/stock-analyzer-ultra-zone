@@ -19,23 +19,23 @@
   ],
   "schedules": [
     {
-      "schedule_id": "698b942febe6fd87d1dcc0d3",
+      "schedule_id": "698b98a2ebe6fd87d1dcc0d4",
       "agent_id": "698b9424d33873d8366013f2",
       "agent_name": "Stock Analysis Agent",
-      "cron_expression": "0 7 * * *",
-      "timezone": "America/New_York",
+      "cron_expression": "30 2 * * *",
+      "timezone": "Asia/Kolkata",
       "message": "Run the daily stock analysis for all configured stocks in the watchlist and send the morning briefing email.",
       "is_active": true,
       "max_retries": 2,
       "retry_delay": 300,
-      "next_run_time": "2026-02-11T07:00:00-05:00"
+      "next_run_time": "2026-02-11T02:30:00+05:30"
     }
   ],
   "workflow": {
     "nodes": [
       {"id": "input_node", "type": "Input", "label": "Scheduler Trigger", "nodeCategory": "input"},
       {"id": "stock_analysis_agent", "type": "Agent", "label": "Stock Analysis Agent", "nodeCategory": "agent"},
-      {"id": "scheduler_node", "type": "Scheduler", "label": "Scheduled: Daily at 7:00 AM ET", "nodeCategory": "input"},
+      {"id": "scheduler_node", "type": "Scheduler", "label": "Scheduled: Daily at 2:30 AM IST", "nodeCategory": "input"},
       {"id": "output_node", "type": "Output", "label": "Analysis Response", "nodeCategory": "end"}
     ],
     "edges": [

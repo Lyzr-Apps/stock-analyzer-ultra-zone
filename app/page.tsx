@@ -41,7 +41,7 @@ import { Separator } from '@/components/ui/separator'
 // ─── Constants ───────────────────────────────────────────────────────────────
 
 const AGENT_ID = '698b9424d33873d8366013f2'
-const SCHEDULE_ID = '698b942febe6fd87d1dcc0d3'
+const SCHEDULE_ID = '698b98a2ebe6fd87d1dcc0d4'
 const DEFAULT_STOCKS = ['AAPL', 'MSFT', 'GOOGL', 'AMZN', 'TSLA']
 const LS_KEY_STOCKS = 'stock_watchlist'
 const LS_KEY_EMAIL = 'stock_email'
@@ -426,7 +426,7 @@ function SettingsModal({
             <Label className="text-xs font-medium text-foreground">Schedule</Label>
             <div className="flex items-center gap-2 p-2 bg-muted/50 border border-border rounded-sm">
               <FiInfo className="w-3.5 h-3.5 text-muted-foreground flex-shrink-0" />
-              <span className="text-xs text-muted-foreground">Daily at 7:00 AM ET (America/New_York)</span>
+              <span className="text-xs text-muted-foreground">Daily at 2:30 AM IST (Asia/Kolkata)</span>
             </div>
           </div>
         </CardContent>
@@ -547,7 +547,7 @@ function SchedulePanel() {
               </div>
               <div className="space-y-0.5">
                 <span className="text-muted-foreground">Frequency</span>
-                <span className="font-medium text-foreground block">{cronToHuman('0 7 * * *')}</span>
+                <span className="font-medium text-foreground block">{cronToHuman('30 2 * * *')}</span>
               </div>
               <div className="space-y-0.5">
                 <span className="text-muted-foreground">Next Run</span>
@@ -648,7 +648,7 @@ function AgentInfoPanel({ activeAgentId }: { activeAgentId: string | null }) {
 export default function Home() {
   // State
   const [stocks, setStocks] = useState<string[]>([])
-  const [email, setEmail] = useState('')
+  const [email, setEmail] = useState('vidur@lyzr.ai')
   const [analysisResult, setAnalysisResult] = useState<string>('')
   const [isLoading, setIsLoading] = useState(false)
   const [error, setError] = useState<string | null>(null)
@@ -711,7 +711,7 @@ export default function Home() {
     if (sampleData) {
       setAnalysisResult(SAMPLE_ANALYSIS)
       setLastAnalysisTime('Feb 10, 2026 7:00 AM')
-      setEmail((prev) => prev || 'analyst@example.com')
+      setEmail((prev) => prev || 'vidur@lyzr.ai')
     } else {
       setAnalysisResult('')
       setLastAnalysisTime('')
