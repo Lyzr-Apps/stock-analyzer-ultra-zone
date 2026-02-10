@@ -1,0 +1,59 @@
+{
+  "agents": [
+    {
+      "agent_id": "698b9424d33873d8366013f2",
+      "name": "Stock Analysis Agent",
+      "description": "Fetches real-time stock data, news, and market sentiment for configured stocks; generates comprehensive analysis with price movements, key metrics, and actionable insights; delivers morning briefing via email",
+      "agent_role": "Expert stock market analyst and portfolio advisor",
+      "agent_goal": "Analyze configured stocks using real-time market data, news, and sentiment analysis to generate comprehensive daily briefings with actionable insights, and deliver them via email",
+      "provider_id": "perplexity",
+      "model": "sonar-pro",
+      "temperature": 0.3,
+      "top_p": 1,
+      "agent_type": "TEXT",
+      "tools": ["GMAIL_SEND_EMAIL"],
+      "image_output_config": null,
+      "voice_config": null,
+      "file_output": false
+    }
+  ],
+  "schedules": [
+    {
+      "schedule_id": "698b942febe6fd87d1dcc0d3",
+      "agent_id": "698b9424d33873d8366013f2",
+      "agent_name": "Stock Analysis Agent",
+      "cron_expression": "0 7 * * *",
+      "timezone": "America/New_York",
+      "message": "Run the daily stock analysis for all configured stocks in the watchlist and send the morning briefing email.",
+      "is_active": true,
+      "max_retries": 2,
+      "retry_delay": 300,
+      "next_run_time": "2026-02-11T07:00:00-05:00"
+    }
+  ],
+  "workflow": {
+    "nodes": [
+      {"id": "input_node", "type": "Input", "label": "Scheduler Trigger", "nodeCategory": "input"},
+      {"id": "stock_analysis_agent", "type": "Agent", "label": "Stock Analysis Agent", "nodeCategory": "agent"},
+      {"id": "scheduler_node", "type": "Scheduler", "label": "Scheduled: Daily at 7:00 AM ET", "nodeCategory": "input"},
+      {"id": "output_node", "type": "Output", "label": "Analysis Response", "nodeCategory": "end"}
+    ],
+    "edges": [
+      {"source": "scheduler_node", "target": "stock_analysis_agent"},
+      {"source": "input_node", "target": "stock_analysis_agent"},
+      {"source": "stock_analysis_agent", "target": "output_node"}
+    ]
+  },
+  "test_results": {
+    "stock_analysis_agent": {
+      "agent_id": "698b9424d33873d8366013f2",
+      "agent_name": "Stock Analysis Agent",
+      "test_status": "failed",
+      "test_timestamp": "2026-02-10T20:26:20.478Z",
+      "error": "litellm.BadRequestError: Model 'sonar-pro' missing provider prefix. Must be 'perplexity/sonar-pro' for litellm routing.",
+      "suggested_fix": "Update agent model from 'sonar-pro' to 'perplexity/sonar-pro' and ensure PERPLEXITY_API_KEY environment variable is configured.",
+      "test_response_file": "/app/nextjs-project/test_responses/stock_analysis_agent.json",
+      "schema_file": "/app/nextjs-project/response_schemas/stock_analysis_agent_response.json"
+    }
+  }
+}

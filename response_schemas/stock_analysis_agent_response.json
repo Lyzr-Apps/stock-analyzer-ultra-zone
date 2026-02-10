@@ -1,0 +1,47 @@
+{
+  "agent_name": "Stock Analysis Agent",
+  "agent_id": "698b9424d33873d8366013f2",
+  "agent_purpose": "Analyze stocks with real-time market data, news, and sentiment; generate comprehensive briefings with actionable insights; deliver via email",
+  "description": "Response schema for Stock Analysis Agent using Perplexity sonar-pro model. Returns comprehensive portfolio briefings with per-stock analysis including price movements, key metrics, market sentiment, recent news, and actionable insights. Test FAILED due to model config: needs 'perplexity/sonar-pro' not 'sonar-pro'.",
+  "response_schema": {
+    "status": "string (success|error)",
+    "result": {
+      "response": "string",
+      "action_taken": "string (optional)",
+      "data": "object (optional, any structured data)",
+      "suggestions": [
+        "string (optional)"
+      ]
+    },
+    "metadata": {
+      "agent_name": "string",
+      "timestamp": "string (ISO)"
+    }
+  },
+  "example_response": {
+    "status": "success",
+    "result": {
+      "response": "I've completed the task you requested",
+      "action_taken": "Processed the input and generated output",
+      "data": {
+        "key": "value"
+      },
+      "suggestions": [
+        "You might also want to try X"
+      ]
+    },
+    "metadata": {
+      "agent_name": "Stock Analysis Agent",
+      "timestamp": "2025-01-15T10:30:00Z"
+    }
+  },
+  "is_actual_tested": false,
+  "test_timestamp": "2026-02-10T20:28:14.625675",
+  "test_message_used": "Hello, provide a sample response",
+  "raw_test_response": "litellm.BadRequestError: LLM Provider NOT provided. Pass in the LLM provider you are trying to call. You passed model=sonar-pro\n Pass model as E.g. For 'Huggingface' inference endpoints pass in `completion(model='huggingface/starcoder',..)` Learn more: https://docs.litellm.ai/docs/providers",
+  "test_error": "Response not valid JSON: Expecting value: line 1 column 1 (char 0)",
+  "actual_test_response": {
+    "raw_text": "### Morning Briefing: Stock Analysis for AAPL, MSFT, GOOGL\n\n#### Portfolio Overview Summary\nToday's analysis focuses on three major tech stocks: Apple Inc. (AAPL), Microsoft Corporation (MSFT), and Alphabet Inc. (GOOGL). The technology sector has shown mixed performance recently, with ongoing concerns related to inflation and changing consumer behavior impacting investor sentiment. Let\u2019s dive into the individual performances and metrics of each stock.\n\n---\n\n### 1. Apple Inc. (AAPL)\n- **Current Price:** $174.58\n- **Daily Change:** +1.25% \n- **52-week High/Low:** $198.23 / $124.17\n- **Market Cap:** $2.7 trillion\n- **P/E Ratio:** 29.5\n- **Market Sentiment:** Bullish\n\n**Recent News:**\nApple has announced a software update focusing on privacy features, which has been well received by users and analysts alike. The company continues to expand its service offerings, particularly in subscriptions and advertising.\n\n**Actionable Insights:**\n- **Recommendation:** Buy on dips; the recent price decline presents a potential entry point for long-term investors. Consider options for a covered call strategy to enhance yield.\n\n---\n\n### 2. Microsoft Corporation (MSFT)\n- **Current Price:** $342.12\n- **Daily Change:** -0.55%\n- **52-week High/Low:** $366.78 / $213.43\n- **Market Cap:** $2.55 trillion\n- **P/E Ratio:** 36.7\n- **Market Sentiment:** Neutral\n\n**Recent News:**\nMicrosoft has seen a recent decline in cloud service growth rates, which has raised concerns among investors. However, their integration of AI across services remains a bright spot, positioning them well for future growth.\n\n**Actionable Insights:**\n- **Recommendation:** Hold; monitor for signs of stabilization in cloud growth. Pullbacks can be seen as a buying opportunity, especially with strong fundamentals in AI and enterprise solutions.\n\n---\n\n### 3. Alphabet Inc. (GOOGL)\n- **Current Price:** $128.39\n- **Daily Change:** +2.10%\n- **52-week High/Low:** $145.64 / $83.45\n- **Market Cap:** $1.66 trillion\n- **P/E Ratio:** 24.1\n- **Market Sentiment:** Bullish\n\n**Recent News:**\nAlphabet's latest quarterly earnings exceeded expectations thanks to strong ad revenue growth and improved performance in their cloud division. Additionally, new developments in AI technology are garnering positive attention.\n\n**Actionable Insights:**\n- **Recommendation:** Buy; given the robust growth in advertising and cloud services, along with a recent positive earnings report, this stock looks attractive for bullish investors.\n\n---\n\n### Conclusion\nThe tech sector offers promising opportunities amid current volatility. Apple and Alphabet exhibit bullish trends supported by positive news, while Microsoft remains stable but neutral, indicating a wait-and-see approach may be best for its investors. Keep an eye on these indicators as you adjust your portfolio positioning.\n\n--- \n\nThis comprehensive briefing encapsulates current movements and predictions for the three selected stocks. Adjustments to your portfolio should be made based on risk tolerance, investment horizon, and market conditions."
+  },
+  "test_passed": false
+}
